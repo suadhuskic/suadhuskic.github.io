@@ -23,34 +23,56 @@ export default class ViewAll extends Component {
     this.deleteAllInventory = this.deleteAllInventory.bind(this);
   }
 
+  /**
+  * handle the new value they search for by disptaching.
+  * @param event SyntheticEvent
+  *
+  *@return void;
+  */
   handleSearchOnChange(event) {
     const searchValue = event.target.value;
     this.props.dispatch(inventory.updateSearchValue(searchValue));
   }
 
+  /**
+  * handle the new property they want to serach for search by disptaching.
+  * @param event SyntheticEvent
+  *
+  *@return void;
+  */
   handleSearchByProperty(event) {
     const searchProperty = event.target.value;
     this.props.dispatch(inventory.updateSearchProperty(searchProperty));
   }
 
+  /**
+  * delete all inventory in the store by dispatching.
+  *@return void;
+  */
   deleteAllInventory() {
     this.props.dispatch(inventory.deleteAllInventory());
   }
 
+  /**
+  * delete a specific inventory in the store by dispatching.
+  *
+  * @param inv object - the object to delete.
+  *
+  *@return void;
+  */
   deleteInventory(inv) {
     this.props.dispatch(inventory.deleteInventory(inv.id));
   }
 
   render() {
+
     const { inventory, searchProperty } = this.props;
 
+    //th, and td.
     const cellStyle = {
       textAlign: 'left',
       verticalAlign: 'center'
     }
-
-    console.log(inventory);
-
     return (
 
       <div>

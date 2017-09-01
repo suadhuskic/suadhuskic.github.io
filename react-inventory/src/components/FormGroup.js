@@ -32,15 +32,4 @@ export default class FormGroup extends Component {
       </div>
     )
   }
-
 }
-
-//have they started typing yet ?
-
-//is this field required ?
-
-//couple of states:
-//error -> wrap in a div -> <div class="invalid-feedback">
-//value
-//className -form-control, append 'is-invalid' when input is missing values.
-//

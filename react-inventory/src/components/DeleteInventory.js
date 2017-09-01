@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-
 export default class DeleteInventory extends Component {
-
-
   constructor(props) {
     super(props)
     this.handleOnClick = this.handleOnClick.bind(this);
@@ -18,8 +15,5 @@ export default class DeleteInventory extends Component {
       <button type="button" onClick={this.handleOnClick} className="btn btn-danger">Delete</button>
     );
   }
-
-
-
 
 }

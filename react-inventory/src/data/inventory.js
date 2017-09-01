@@ -20,7 +20,4 @@ for(let i=0; i<5; i++) {
     qty: faker.random.number({min: 5, max: 10})
   })
 }
-
-console.log(allInventory);
-
 export default allInventory;

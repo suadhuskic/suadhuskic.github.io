@@ -1,4 +1,5 @@
 import faker from 'faker';
+import shortid from 'shortid';
 
 const allInventory = [];
 
@@ -12,6 +13,7 @@ const allInventory = [];
 for(let i=0; i<5; i++) {
 
   allInventory.push({
+    id: shortid.generate(),
     partNumber: faker.random.number(),
     name: faker.commerce.productName(),
     title: faker.commerce.productMaterial(),

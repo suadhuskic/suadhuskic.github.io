@@ -60,6 +60,27 @@ export default class AddNew extends Component {
   }
 
   /**
+  * check object to see if all required properties are not empty.
+  *
+  * @param required - object {propertyName: boolean}
+  * @param object - object - use to check all required properties.
+  *
+  * @return Promise
+  */
+  checkForm(required, object) {
+    return new Promise(function(resolve, reject) {
+      _.forIn(required, (value, key) => {
+        if(value) {
+          if(_.isEmpty(object[key])) {
+            reject(key);
+          }
+        }
+      });
+      resolve();
+    })
+  }
+
+  /**
   * event handler for when our form is submitted.
   *
   * @param event - SyntheticEvent
@@ -71,29 +92,27 @@ export default class AddNew extends Component {
     event.preventDefault();
 
     //grab all the properties that are required and make sure they filled them out
-    _.forIn(this.state.required, (value, key) => {
-      if(value) {
-        if(_.isEmpty(this.state.inventory[key])) {
-          return this.appendError(key);
-        }
-      }
+    this.checkForm(this.state.required, this.state.inventory).then( () => {
+      //if we made it here; we are all good;
+      //now we can push to store.
+      //need to assign a unique id using shortid
+      const newInventory = _.assign(this.state.inventory);
+      newInventory.id = shortid.generate();
+
+      this.setState({
+        inventory: newInventory
+      });
+
+      //now we make a call to the store and add our new object.
+      this.props.dispatch(inventory.add(this.state.inventory));
+
+      //now we can push back to the main page.
+      this.props.history.push('/');
+
+    }).catch( (key) => {
+      this.appendError(key);
     });
 
-    //if we made it here; we are all good;
-    //now we can push to store.
-    //need to assign a unique id using shortid
-    const newInventory = _.assign(this.state.inventory);
-    newInventory.id = shortid.generate();
-
-    this.setState({
-      inventory: newInventory
-    });
-
-    //now we make a call to the store and add our new object.
-    this.props.dispatch(inventory.add(this.state.inventory));
-
-    //now we can push back to the main page.
-    this.props.history.push('/');
   }
 
   /**

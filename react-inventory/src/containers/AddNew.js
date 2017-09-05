@@ -5,21 +5,11 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import * as inventory from '../actions/inventory';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import shortid from 'shortid';
 import validator from 'validator';
 
-//we get the inventory here because when they submit;
-//we check if the part number exists.
-//in the real world we would check this with a API request.
-//we keep the inventory object in the component state;
-//until we verify its okay okay to add/update to the store.
-//
-@connect((reduxStore) => {
-  return {
-    inventory: reduxStore.inventory.inventory
-  }
-})
-export default class AddNew extends Component {
+class AddNew extends Component {
   constructor(props) {
     super(props);
 
@@ -281,3 +271,18 @@ export default class AddNew extends Component {
     )
   }
 }
+//we get the inventory here because when they submit;
+//we check if the part number exists.
+//in the real world we would check this with a API request.
+//we keep the inventory object in the component state;
+//until we verify its okay okay to add/update to the store.
+//
+const mapStateToProps = (reduxStore) => {
+  return {
+    inventory: reduxStore.inventory.inventory
+  }
+}
+const enhance = compose(
+  connect(mapStateToProps)
+)
+export default enhance(AddNew);

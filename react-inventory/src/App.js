@@ -18,6 +18,7 @@ class App extends Component {
             <NavBar />
             <MainContainer>
               <Route exact path="/" component={ViewAll} />
+              <Route exact path="/react-inventory-production/index.html" component={ViewAll} />
               <Route exact path="/add" component={AddNew} />
             </MainContainer>
           </div>

@@ -85,7 +85,7 @@ export default class AddNew extends Component {
   *
   * @param event - SyntheticEvent
   *
-  * @return boolean
+  * @return void
   */
   handleOnSubmit = (event) => {
     //stop it.

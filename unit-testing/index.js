@@ -1,7 +1,3 @@
-// Chai is a BDD / TDD assertion library for node and the browser
-// that can be delightfully paired with any javascript testing framework.
-
-//mocha is the testing framework.
 const user = require('./user.js');
 const assert = require('chai').assert;
 
@@ -28,7 +24,7 @@ describe("User object", function() {
     assert.strictEqual(my_user.get('age'), newUserName[2]);
   });
 
-  it("updating user should update all property.", function() {
+  it("updating user should update the property.", function() {
 
     const updatedUsername = 'super-cool-dude';
 

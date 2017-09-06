@@ -1,6 +1,6 @@
 ## REACT JS - inventory system demo.
 
-https://suadhuskic.github.io/react-inventory-production/index.html
+[https://suadhuskic.github.io/react-inventory-production/index.html](https://suadhuskic.github.io/react-inventory-production/index.html)
 
  - A basic inventory system for adding inventory. Built in React JS.
  - The state of the application is in `redux`.

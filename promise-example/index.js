@@ -1,4 +1,3 @@
-const readline = require('readline');
 var readlineSync = require('readline-sync');
 
 const questions = [

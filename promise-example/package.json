@@ -1,0 +1,19 @@
+{
+  "name": "promise-example",
+  "version": "1.0.0",
+  "description": "an example of how to use javascript promise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "suad huskic",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.7",
+    "webpack": "^3.5.5"
+  }
+}

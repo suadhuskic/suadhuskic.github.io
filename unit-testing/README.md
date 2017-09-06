@@ -25,12 +25,11 @@ It has the following methods:
  - updating the user should return a promise and reject because the user is missing a phone number.
 
 ### full code:
+[index.js](https://github.com/suadhuskic/suadhuskic.github.io/blob/master/unit-testing/index.js)
+
  ```js
  const user = require('./user.js');
  const assert = require('chai').assert;
-
- //the user can do the following:
- //updateName
 
  describe("User object", function() {
 

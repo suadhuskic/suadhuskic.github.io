@@ -1,9 +1,6 @@
 const user = require('./user.js');
 const assert = require('chai').assert;
 
-//the user can do the following:
-//updateName
-
 describe("User object", function() {
 
   const newUserName = [
